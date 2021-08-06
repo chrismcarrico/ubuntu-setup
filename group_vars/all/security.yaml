@@ -1,0 +1,8 @@
+security:
+  - clamav
+  - rkhunter
+
+privacy:
+  - mat2
+  - proxychains4
+  - pass

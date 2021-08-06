@@ -1,0 +1,5 @@
+- name: install cac reader packages
+  apt:
+    name: "{{ cac }}"
+    state: present
+    force_apt_get: yes

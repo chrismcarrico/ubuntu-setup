@@ -1,0 +1,43 @@
+system:
+  - curl
+  - pwgen
+  - wget
+  - net-tools
+  - ca-certificates
+  - gnupg-agent
+  - software-properties-common
+  - axel
+  - vim
+  - nano
+  - emacs
+
+developer:
+  - ansible-lint
+  - awscli
+  - black
+  - colordiff
+  - g++
+  - golang-go
+  - pylint
+  - python3-pip
+  - cloc
+  - sloccount
+  - gcc
+  - zsh
+  - fonts-powerline
+  - powerline
+  - jq
+  - tree
+  - virtualbox
+
+productivity:
+  - zim
+  - taskwarrior
+  - timewarrior
+  - texlive-full
+
+media:
+  - gimp
+  - mediainfo
+  - vlc
+  - ffmpeg

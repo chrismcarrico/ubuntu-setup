@@ -1,0 +1,15 @@
+- block:
+  - name: add sublime apt key
+    apt_key:
+      url: "{{ sublime_apt_key }}"
+
+  - name: add sublime repo
+    apt_repository:
+      repo: "{{ sublime_repo }}"
+      state: present
+      filename: sublime
+
+  - name: install latest sublime packages
+    apt:
+      name: "{{ sublime_packages }}"
+      force_apt_get: yes

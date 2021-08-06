@@ -1,0 +1,5 @@
+- name: install security packages
+  apt:
+    name: "{{ security }}"
+    state: present
+    force_apt_get: yes

@@ -1,0 +1,50 @@
+- name: dist upgrade
+  apt:
+      update_cache: yes
+      upgrade: dist
+      force_apt_get: yes
+
+- name: install basic system tools
+  apt:
+    name: "{{ system }}"
+    state: present
+    force_apt_get: yes
+
+- name: install developer tools
+  apt:
+    name: "{{ developer }}"
+    state: present
+    force_apt_get: yes 
+
+- name: install productivity tools
+  apt:
+    name: "{{ productivity }}"
+    state: present
+    force_apt_get: yes
+
+- name: install media tools
+  apt:
+    name: "{{ media }}"
+    state: present
+    force_apt_get: yes
+
+- block:
+    - name: Create directories for golang
+      file:
+        path: "~{{ local_username }}/{{ item }}"
+        state: directory
+      with_items:
+        - go
+        - go/src
+        - go/bin
+
+    - name: Make GOPATH available in .bashrc
+      lineinfile:
+        path: "~{{ local_username }}/.bashrc"
+        line: "{{ item }}"
+        create: yes
+      with_items:
+        - export GOPATH=$HOME/go
+        - export PATH=$PATH:$GOPATH/bin
+  become: yes
+  become_user: "{{ local_username }}"

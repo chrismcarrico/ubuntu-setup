@@ -1,0 +1,10 @@
+- hosts: localhost
+  roles:
+    - base
+    - googlechrome
+    - containerization
+    - python
+    - security
+    - sublimetext
+    - vscode
+    - work

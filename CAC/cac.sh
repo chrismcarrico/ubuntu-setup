@@ -1,0 +1,1 @@
+sudo apt install libpcsclite1 pcscd pcsc-tools -y

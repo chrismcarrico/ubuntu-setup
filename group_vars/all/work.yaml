@@ -1,0 +1,4 @@
+cac:
+  - libpcsclite1
+  - pcscd
+  - pcsc-tools
