@@ -18,4 +18,4 @@
     command: code --install-extension {{ item }}
     with_items: "{{ vscode_extensions }}"
     become: yes
-    become_user: "{{ local_username }}"
+    become_user: "{{ username }}"

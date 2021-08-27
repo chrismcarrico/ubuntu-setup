@@ -1,10 +1,10 @@
 containerization:
   - docker.io
   - docker-compose
-  # - kubectl
 
-kind_url: "https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64"
+kind_version: "0.11.1"
+kubectl_version: "1.22.0"
+
+kind_url: "https://kind.sigs.k8s.io/dl/v{{ kind_version }}/kind-linux-amd64"
 minikube_url: "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
-kubectl_url: "https://dl.k8s.io/release/v1.22.0/bin/linux/amd64/kubectl"
-# kubectl_apt_key: "https://packages.cloud.google.com/apt/doc/apt-key.gpg" #todo 
-# kubectl_repo: "deb [signed-by=/etc/apt/trusted.gpg.d/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main"
+kubectl_url: "https://dl.k8s.io/release/v{{ kubectl_version }}/bin/linux/amd64/kubectl"

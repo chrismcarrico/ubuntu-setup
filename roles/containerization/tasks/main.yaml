@@ -3,36 +3,25 @@
     get_url:
       url: "{{ kind_url }}"
       dest: "/usr/local/bin/kind"
-      mode: "+x"
+      mode: 0755
     become: yes
 
   - name: download minikube
     get_url:
       url: "{{ minikube_url }}"
       dest: "/usr/local/bin/minikube"
-      mode: "+x"
+      mode: 0755
     become: yes
 
   - name: download kubectl
     get_url:
       url: "{{ kubectl_url }}"
       dest: "/usr/local/bin/kubectl" #todo
-      mode: "+x"
+      mode: 0755
     become: yes
 
-  # - name: add kubectl key
-  #   apt_key:
-  #     url: "{{ kubectl_apt_key }}"
-  #     file: "/etc/apt/trusted.gpg"
-  #   become: yes
-
-  # - name: add kubectl repo
-  #   apt_repository:
-  #     repo: "{{ kubectl_repo }}"
-  #     state: present
-
   - name: install packaged containerization tools
-    apt: 
+    apt:
       name: "{{ containerization }}"
       update_cache: yes
       state: present

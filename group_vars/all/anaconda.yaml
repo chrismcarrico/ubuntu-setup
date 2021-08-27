@@ -1,0 +1,25 @@
+anaconda_url: "https://repo.continuum.io/archive"
+anaconda_python_ver: 3
+anaconda_ver: "2021.05"
+anaconda_download_timeout: 600
+anaconda_make_sys_default: False
+anaconda_platform: "Linux-x86_64"
+
+anaconda_parent_dir: "{{ homedir }}"
+anaconda_name: "Anaconda{{ anaconda_python_ver }}-{{ anaconda_ver }}-{{ anaconda_platform }}"
+anaconda_installer_sh: "{{ anaconda_name }}.sh"
+anaconda_installer_url: "{{ anaconda_url }}/{{ anaconda_installer_sh }}"
+anaconda_install_dir: "{{ anaconda_parent_dir }}/anaconda3"
+
+anaconda_dependencies:
+  - libgl1-mesa-glx
+  - libegl1-mesa 
+  - libxrandr2 
+  - libxrandr2 
+  - libxss1 
+  - libxcursor1 
+  - libxcomposite1 
+  - libasound2 
+  - libxi6 
+  - libxtst6
+

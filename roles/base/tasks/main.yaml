@@ -1,8 +1,8 @@
 - name: dist upgrade
   apt:
-      update_cache: yes
-      upgrade: dist
-      force_apt_get: yes
+    update_cache: yes
+    upgrade: dist
+    force_apt_get: yes
 
 - name: install basic system tools
   apt:
@@ -14,7 +14,7 @@
   apt:
     name: "{{ developer }}"
     state: present
-    force_apt_get: yes 
+    force_apt_get: yes
 
 - name: install productivity tools
   apt:
@@ -31,7 +31,7 @@
 - block:
     - name: Create directories for golang
       file:
-        path: "~{{ local_username }}/{{ item }}"
+        path: "~{{ username }}/{{ item }}"
         state: directory
       with_items:
         - go
@@ -40,11 +40,10 @@
 
     - name: Make GOPATH available in .bashrc
       lineinfile:
-        path: "~{{ local_username }}/.bashrc"
+        path: "~{{ username }}/.bashrc"
         line: "{{ item }}"
         create: yes
       with_items:
         - export GOPATH=$HOME/go
         - export PATH=$PATH:$GOPATH/bin
   become: yes
-  become_user: "{{ local_username }}"

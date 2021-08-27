@@ -1,0 +1,15 @@
+tasks:
+  - name: List s3 objects
+    aws_s3:
+      bucket: "{{ bucket_name }}"
+      prefix: "carricoc/"
+      mode: list
+    register: s3objects
+
+  - name: Download s3objects
+    aws_s3:
+      bucket: "bucketname"
+      object: "{{ item }}"
+      mode: get
+      dest: "/home/{{ username }}/{{ item|basename }}"
+    with_items: "{{ s3objects.s3_keys }}"

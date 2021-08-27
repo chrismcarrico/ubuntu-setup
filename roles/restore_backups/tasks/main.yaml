@@ -1,0 +1,18 @@
+tasks:
+  - name: List s3 objects
+    aws_s3:
+      bucket: "{{ bucket_name }}"
+      prefix: "carricoc/"
+      mode: list
+    register: s3objects
+
+  - name: Download s3objects
+    aws_s3:
+      bucket: "bucketname"
+      object: "{{ item }}"
+      mode: get
+      dest: "/home/{{ username }}/backup"
+    with_items: "{{ s3objects.s3_keys }}"
+
+  - name: unencrypt backups
+      ansible.builtin.shell: "openssl enc -d -aes256 -k $(pass backups/password) -in backup -out - | tar xz < /home/carrico"

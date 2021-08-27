@@ -1,3 +1,6 @@
+username: carricoc
+homedir: "/home/{{username}}"
+
 system:
   - curl
   - pwgen
@@ -29,6 +32,8 @@ developer:
   - jq
   - tree
   - virtualbox
+  - progress
+  - pv
 
 productivity:
   - zim
